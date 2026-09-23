@@ -1,0 +1,18 @@
+# Local research, conversation notes, downloaded references and old fixtures
+.local/
+
+# Editor and operating-system files
+.DS_Store
+.vscode/
+.idea/
+.cursor/
+.codex/
+
+# Local secrets and generated files
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+node_modules/
+coverage/
