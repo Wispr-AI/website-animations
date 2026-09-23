@@ -1,0 +1,13 @@
+<!-- Site settings > Custom code > Footer code. Replace COMMIT with the release hash. -->
+<script>
+(function () {
+  if (!document.querySelector('.faq_wrap [faq-item]')) return;
+  if (document.getElementById('wispr-faq-script')) return;
+  var script = document.createElement('script');
+  script.id = 'wispr-faq-script';
+  script.src = 'https://cdn.jsdelivr.net/gh/Wispr-AI/website-animations@COMMIT/animations/faq/faq.js';
+  script.async = true;
+  script.onerror = function () { script.remove(); };
+  document.body.appendChild(script);
+})();
+</script>
