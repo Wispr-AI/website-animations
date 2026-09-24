@@ -6,6 +6,7 @@ Reusable browser animations for Webflow pages. Layout, content and responsive st
 
 | Animation | Entry file | Setup |
 | --- | --- | --- |
+| Image scroll | [image-scroll.js](animations/image-scroll/image-scroll.js) | [Integration guide](animations/image-scroll/README.md) |
 | FAQ | [faq.js](animations/faq/faq.js) | [Integration guide](animations/faq/README.md) |
 | Notetaker tabs | [notetaker-tabs.js](animations/notetaker-tabs/notetaker-tabs.js) | [Integration guide](animations/notetaker-tabs/README.md) |
 
