@@ -204,11 +204,19 @@
       }
     };
     var FLAG_URL = 'https://flagcdn.com/w80/{code}.png';   // {code} → country code
-    var SEP      = '\u00a0\u00a0\u00a0'; // preserved spacing between sentence repeats
+    var SEP      = '\u00a0'; // preserved spacing between sentence repeats
     var SEGS = [{
       text: 'Flow ke saath likho. Kal milte hain. Phir ideas par baat karte hain. Hindi ho ya English, baat apni rakho.',
       name: 'Hinglish', code: 'in', flag: '🇮🇳'
     }];
+
+    // Measure the original four-language sweep in the same font so this shorter
+    // sentence travels at the same speed, rather than taking 16 seconds by itself.
+    var SPEED_REFERENCE = ["I’m getting started with the project. Here are a few options.", "Wie möchten Sie die Datei einrichten? Hier sind ein paar Optionen für Sie.", "Estoy empezando con el proyecto. Aquí van algunas opciones.", "प्रोजेक्ट पर काम शुरू हो गया। आप इसे कैसे सेट करना चाहेंगे? यहाँ कुछ विकल्प हैं।"];
+    var referenceLine = SPEED_REFERENCE[3] + '   ' + SPEED_REFERENCE.join('   ') + '   ' + SPEED_REFERENCE[0];
+    var firstCenter = SPEED_REFERENCE[3].length + 3 + SPEED_REFERENCE[0].length / 2;
+    var lastCenter = referenceLine.length - 3 - SPEED_REFERENCE[0].length - SPEED_REFERENCE[3].length / 2;
+    var referenceSweep = (lastCenter - firstCenter) / referenceLine.length * 4 / 3;
 
     // ---- config ----
     var ANCHOR     = 0.5;     // point along the curve (0..1) each language parks at
@@ -259,7 +267,7 @@
     var BACK     = 'cubic-bezier(.34,1.56,.64,1)';
 
     // ---- playback (both modes) ----
-    // One complete sentence per 16-second loop; other cards keep their original timing.
+    // The original language sweep takes 16 seconds; measure() scales the shorter loop to match its speed.
     var LANG_AUTOPLAY_MS = [16000, 9000, 4500, 5000];
     var LANG_START = { 0: 0 };
 
@@ -461,6 +469,10 @@
         // Canvas is reliable even when an SVG is offscreen or clipped in WebKit.
         // Measure the repeat unit itself, including its trailing separator.
         periodWidth = measureOnCanvas(textEl, tpEl, PERIOD);
+        var originalDistance = measureOnCanvas(textEl, tpEl, referenceLine) * referenceSweep;
+        if (periodWidth > 0 && originalDistance > 0) {
+          LANG_AUTOPLAY_MS[0] = 16000 * periodWidth / originalDistance;
+        }
         var pathLen = 0;
         try { pathLen = pathEl && pathEl.getTotalLength ? pathEl.getTotalLength() : 0; } catch (e2) {}
         if (!pathLen && svgEl && svgEl.viewBox && svgEl.viewBox.baseVal) { pathLen = svgEl.viewBox.baseVal.width; }

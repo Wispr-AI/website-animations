@@ -4,7 +4,7 @@ Diwali-specific replacement for `animations/image-scroll/image-scroll.js`. Keeps
 
 > Flow ke saath likho. Kal milte hain. Phir ideas par baat karte hain. Hindi ho ya English, baat apni rakho.
 
-The sentence moves along the existing SVG curve in a 16-second loop while the card is selected and visible. Reduced motion shows a static sentence. Webflow still owns layout and responsive styling.
+The sentence moves along the existing SVG curve at the original multilingual card’s movement speed, with one space between repetitions, while the card is selected and visible. Reduced motion shows a static sentence. Webflow still owns layout and responsive styling.
 
 ## Install on the Diwali page
 
