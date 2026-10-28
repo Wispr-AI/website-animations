@@ -4,7 +4,7 @@
 (function () {
   'use strict';
   if (window.NotetakerMessages) window.NotetakerMessages.destroy();
-  var SELECTOR = '.hero_contain.is-green.is-message-hero';
+  var SELECTOR = '[data-stack="green"]';
   var cleanups = [], started = false, dead = false;
 
   function saveStyle(el) {

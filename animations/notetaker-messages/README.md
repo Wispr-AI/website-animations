@@ -4,7 +4,7 @@ Standalone green message hero extracted from `aquaNeon/wispr@b0c1460/stack.js`. 
 
 ## Webflow setup
 
-- Root: `.hero_contain.is-green.is-message-hero`. Preserve the original visible panel height in Webflow on this scoped combo class: desktop `calc(100vh + 2px)`, tablet `100vh`, mobile landscape/portrait `auto`. The old stack.js supplied the desktop/tablet heights in JavaScript; the standalone controller deliberately leaves sizing to Webflow. Keep existing content margins and message positions.
+- Animation root: `[data-stack="green"]` on `.hero_contain.is-green.is-message-hero`. Classes own Webflow appearance; the attribute opts the element into the animation. Preserve the original visible panel height in Webflow on this scoped combo class: desktop `calc(100vh + 2px)`, tablet `100vh`, mobile landscape/portrait `auto`. The old stack.js supplied the desktop/tablet heights in JavaScript; the standalone controller deliberately leaves sizing to Webflow. Keep existing content margins and message positions.
 - Keep `.meeting_content`, `.meeting_heading`, and `.meeting_items` containing the six `[data-stack="item"]` rows. Keep their existing combo classes, `.meeting_check` and `.meeting_item_animate` contents.
 - Optional `data-stack-order` sorts the entrance; absent values preserve DOM order.
 - Remove the old card stages, spacer and stack/tab preview CSS.
@@ -31,3 +31,7 @@ The script also preserves the original scroll-rounded corners on `[data-corners]
 Layout, typography and spacing stay in Webflow. No external stylesheet is needed.
 
 `window.NotetakerMessages.refresh()` refreshes scroll measurements; `.destroy()` restores authored styles and word nodes. Loading the script again destroys its previous instance first. Other controllers are not destroyed.
+
+## Optional legacy cleanup
+
+Keep `data-stack="green"`, message-row `data-stack="item"`, optional `data-stack-order`, and `data-corners`. The old `data-stack` values `section`, `hold`, `headline`, and `icon` are no longer read by this controller and can be removed from this migrated section. `data-corners-base` is also unused. Keep the existing styling classes, especially `.is-message-hero` (responsive height), `.meeting_items`, `.meeting_check`, and `.meeting_item_animate`. Do not apply this cleanup to other pages still using the original stack.js.
