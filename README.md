@@ -14,6 +14,8 @@ Reusable browser animations for Webflow pages. Layout, content and responsive st
 | Notetaker messages | [notetaker-messages.js](animations/notetaker-messages/notetaker-messages.js) | [Integration guide](animations/notetaker-messages/README.md) |
 | Notetaker stack | [stack.js](animations/stack/stack.js) | [Integration guide](animations/stack/README.md) |
 | Notetaker hero | [notetaker.js](animations/notetaker/notetaker.js) | [Integration guide](animations/notetaker/README.md) |
+| Home: Flow stack | [flow-stack.js](animations/home/flow-stack.js) | [Integration guide](animations/home/README.md) |
+| Home: Languages | [languages.js](animations/home/languages.js) | [Integration guide](animations/home/README.md) |
 
 ## Project structure
 
