@@ -12,6 +12,8 @@ Reusable browser animations for Webflow pages. Layout, content and responsive st
 | Marketers hero | [marketers-hero.js](animations/marketers-hero/marketers-hero.js) | [Integration guide](animations/marketers-hero/README.md) |
 | Notetaker tabs | [notetaker-tabs.js](animations/notetaker-tabs/notetaker-tabs.js) | [Integration guide](animations/notetaker-tabs/README.md) |
 | Notetaker messages | [notetaker-messages.js](animations/notetaker-messages/notetaker-messages.js) | [Integration guide](animations/notetaker-messages/README.md) |
+| Notetaker stack | [stack.js](animations/stack/stack.js) | [Integration guide](animations/stack/README.md) |
+| Notetaker hero | [notetaker.js](animations/notetaker/notetaker.js) | [Integration guide](animations/notetaker/README.md) |
 
 ## Project structure
 
